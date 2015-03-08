@@ -1,6 +1,8 @@
+= image_tag @post.image.url(:medium)
 %h1= @post.title
 %p= @post.task
 %p= @post.translation
+%p= @post.user.name
 
 = link_to "Home", root_path
 = link_to "Edit", edit_post_path(@post)

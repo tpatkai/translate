@@ -46,6 +46,6 @@ private
     end
     
     def post_params
-      params.require(:post).permit(:title, :task, :translation)
+      params.require(:post).permit(:title, :task, :translation, :image)
     end
 end
