@@ -15,6 +15,8 @@
 		=@post.translation
 	
 	.clearfix
+		.post_image_description
+			= image_tag @post.image.url(:medium)
 		.post_data
 			= link_to like_post_path(@post), method: :get, class: "data" do
 				%i.fa.fa-thumbs-o-up

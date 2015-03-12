@@ -14,10 +14,10 @@ gem 'spring',        group: :development
 gem 'haml', '~> 4.0.6'
 gem 'simple_form', '~> 3.1.0'
 gem 'paperclip', '~> 4.2.1'
+gem "paperclip-dropbox", ">= 1.1.7"
 gem 'devise', '~> 3.4.1'
 gem 'acts_as_votable', '~> 0.10.0'
-
-
+gem 'acts-as-taggable-on', '~> 3.4'
 
 
 
