@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
   acts_as_votable
   belongs_to :user
+  belongs_to:category
   has_many :comments
   has_attached_file :image, styles:  { medium: "700x500#", small: "350x250#"  },
   :storage => :dropbox,

@@ -8,6 +8,8 @@
 	%link{:rel => "stylesheet", :href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"}
 	= csrf_meta_tags
 %body
+	- Category.all.each do |category|
+		= link_to category.name, posts_path(category: category.name)
 	%header
 		.wrapper.clearfix
 			#logo= link_to "Translate.me", root_path

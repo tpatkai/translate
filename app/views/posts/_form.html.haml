@@ -1,8 +1,13 @@
 = simple_form_for @post do |f|
-  = f.input :image
-  = f.input :title
-  = f.input :task
-  = f.input :translation
-
+  = f.input :image , label: 'Upload a scanned text or image'
+  = f.input :title , label: 'Enter the name of the task'
+  = f.input :task, label: 'Describe what you need'
+  = f.collection_select :category_id, Category.all, :id, :name, {promt: "Choose a language pair"}
+  = f.input :translation, label: 'Propose a draft here'
+  %br
   = f.button :submit
+
+
+
+
 

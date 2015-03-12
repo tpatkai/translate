@@ -3,7 +3,12 @@ before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote, :down
 before_action :authenticate_user!, except: [:index, :show]
     
     def index
+      if params[:category].blank?
       @posts= Post.all.order("created_at DESC")
+    else
+      @category_id= Category.find_by(name: params[:category]).id
+      @posts=Post.where(category_id: @category_id).order ("created_at DESC")
+    end
     end
     
     def new
@@ -59,6 +64,6 @@ private
     end
     
     def post_params
-      params.require(:post).permit(:title, :task, :translation, :image)
+      params.require(:post).permit(:title, :task, :translation, :image, :category_id)
     end
 end
