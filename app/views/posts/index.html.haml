@@ -1,13 +1,31 @@
-- @posts.each do |post|
- 
-  %h2= link_to post.title, post
-  %p 
-    =post.comments.count
-    Comments
-  %p 
-    =post.get_likes.size
-    Likes
-
-
+- if user_signed_in?
+  %p#intro
+    Hi there!
+    = current_user.name
+    %br/
+    %span
+      Having trouble with some translations? You've come to the right place
+- else
+  %p#intro
+    Translate.me > #1 source of Crowdsourced Translations
+    %br/
+    %span
+      Having trouble with some translations? You've come to the right place
   
-  =link_to "Add new Translation task", new_post_path
+#posts
+- @posts.each do |post|
+  .post_content 
+    .title
+      %h2= link_to post.title, post
+    .data.clearfix
+      %p.username 
+      Requested by 
+      = post.user.name
+      %p.buttons
+        %span
+          %i.fa.fa-comments-o
+          = post.comments.count
+          %span
+          %i.fa.fa-thumbs-o-up
+          = post.get_likes.size
+  
