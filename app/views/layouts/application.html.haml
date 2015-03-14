@@ -4,24 +4,51 @@
 	%title Translate.me
 	= stylesheet_link_tag    'application', media: 'all'
 	= javascript_include_tag 'application'
-	%link{:rel => "stylesheet", :href => "https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css"}
-	%link{:rel => "stylesheet", :href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"}
-	= csrf_meta_tags
-%body
-	- Category.all.each do |category|
-		= link_to category.name, posts_path(category: category.name)
-	%header
-		.wrapper.clearfix
-			#logo= link_to "Translate.me", root_path
-			%nav
-				- if user_signed_in?
-					= link_to current_user.name, edit_user_registration_path
-					= link_to "Add New Translation Task", new_post_path, class: "button"
-				- else
-					= link_to "Sign in", new_user_session_path
-					= link_to "Sign Up", new_user_registration_path, class: "button"
+	%link{:rel => "stylesheet"}
+		= csrf_meta_tags
+#wrap
+	.navbar.navbar-default.navbar-fixed-top
+		.container
+			.navbar-header
+				%button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+					%span.icon-bar
+					%span.icon-bar
+					%span.icon-bar
+				%a.navbar-brand Translate.me
+			.collapse.navbar-collapse
+				%ul.nav.navbar-nav
+					%li
+						= link_to "Home", root_path
+					%li
+						= link_to "About" , root_path
+					%li
+						= link_to "Profile", edit_user_registration_path
+					%li
+						= link_to "Contact" , root_path
+					%li
+				%ul.nav.navbar-nav.pull-right
+					%li
+						- if user_signed_in?
+							= link_to "Add New Task", new_post_path, class: "button"
+						- else
+							= link_to "Sign in", new_user_session_path
+							= link_to "Sign Up", new_user_registration_path, class: "button"
+			/ /.nav-collapse
+	/ Begin page content        
+.container
+	.page-header
+		%h1 Translate.me Crowdsourced Translations
+	%p.lead
+		Having trouble with some translations? You've come to the right place
+
 	%p.notice= notice
 	%p.alert= alert
 	
-	.wrapper	
-		= yield
+.container	
+	= yield      
+
+#footer
+	.container
+		%p.text-muted.credit
+			Made with rails
+

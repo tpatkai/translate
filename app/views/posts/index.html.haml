@@ -24,10 +24,9 @@
       Requested by 
       = post.user.name
       %p.buttons
-        %span
-          %i.fa.fa-comments-o
+        %span.glyphicon.glyphicon-comment
           = post.comments.count
           %span
-          %i.fa.fa-thumbs-o-up
+        %span.glyphicon.glyphicon-heart
           = post.get_likes.size
  
