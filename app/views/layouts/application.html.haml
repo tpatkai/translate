@@ -38,14 +38,17 @@
 .container
 	.page-header
 		%h1 Translate.me Crowdsourced Translations
-	%p.lead
-		Having trouble with some translations? You've come to the right place
 
 	%p.notice= notice
 	%p.alert= alert
 	
 .container	
-	= yield      
+	= yield   
+			
+	-Category.all.each do |category|
+		= link_to category.name,  posts_path(category: category.name)
+	-Group.all.each do |group|
+		= link_to group.name,  posts_path(group: group.name)
 
 #footer
 	.container

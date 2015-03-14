@@ -1,32 +1,67 @@
 - if user_signed_in?
-  %p#intro
-    Hi there!
-    = current_user.name
-    %br/
-    %span
-      Having trouble with some translations? You've come to the right place
+	%p#intro
+		Hi there!
+		= current_user.name
+		%br/
+		%span
+			Having trouble with some translations? You've come to the right place
+
+	.container-fluid
+		.row
+			.col-xs-4
+				%h2 Everyday translations
+				%p Have a question about an expression, a proverb or somthing in general? Get some answers by posting it here!
+				%p
+					%a.btn.btn-success
+					= link_to "General Translations"
+			.col-xs-4
+				%h2 I Wonder Why?
+				%p I wonder why a pineapple is called a pineapple? ... Get answers to the most puzzling linguistic questions out there!
+				%p
+					%a.btn.btn-success
+					= link_to "Wonder why"
+			.col-xs-4
+				%h2 Serious Corner
+				%p How to write a CV, motivational letter, professional letters and the like. Find out more in this section
+				%p
+					%a.btn.btn-success
+					= link_to "Serious Corner"
+		.row
+			.bs-example
+				.list-group
+					%a.list-group-item{:href => "#"}
+						%span.glyphicon.glyphicon-text-background
+						General
+						%span.badge 25
+					%a.list-group-item{:href => "#"}
+						%span.glyphicon.glyphicon-eye-open
+						Wonder Why?
+						%span.badge 14
+					%a.list-group-item{:href => "#"}
+						%span.glyphicon.glyphicon-education
+						Serious Corner
+						%span.badge 50
+
+	#posts	
+	- @posts.each do |post|
+		.col-sm-6.col-md-6.col-lg-6
+			.title
+				%h2= link_to post.title, post
+				.data.clearfix
+					%p.username 
+					Requested by 
+					= post.user.name
+					%p.buttons
+						%span.glyphicon.glyphicon-comment
+							= post.comments.count
+							%span
+						%span.glyphicon.glyphicon-heart
+							= post.get_likes.size
+							
 - else
-  %p#intro
-    Translate.me > #1 source of Crowdsourced Translations
-    %br/
-    %span
-      Having trouble with some translations? You've come to the right place
-  
-#posts
-- @posts.each do |post|
-  .post_image
-  =link_to (image_tag post.image.url(:small)), post
-  .post_content 
-    .title
-      %h2= link_to post.title, post
-    .data.clearfix
-      %p.username 
-      Requested by 
-      = post.user.name
-      %p.buttons
-        %span.glyphicon.glyphicon-comment
-          = post.comments.count
-          %span
-        %span.glyphicon.glyphicon-heart
-          = post.get_likes.size
- 
+	%p#intro
+		Translate.me > #1 source of Crowdsourced Translations
+		%br/
+		%span
+			Having trouble with some translations? You've come to the right place
+	
