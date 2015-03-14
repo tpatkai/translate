@@ -29,10 +29,10 @@
 				%ul.nav.navbar-nav.pull-right
 					%li
 						- if user_signed_in?
-							= link_to "Add New Task", new_post_path, class: "button"
+							= link_to "Add New Task", new_post_path, class: "btn btn-default btn-sm"
 						- else
 							= link_to "Sign in", new_user_session_path
-							= link_to "Sign Up", new_user_registration_path, class: "button"
+							= link_to "Sign Up", new_user_registration_path, class: "btn btn-default btn-sm"
 			/ /.nav-collapse
 	/ Begin page content        
 .container
@@ -45,13 +45,10 @@
 .container	
 	= yield   
 			
-	-Category.all.each do |category|
-		= link_to category.name,  posts_path(category: category.name)
-	-Group.all.each do |group|
-		= link_to group.name,  posts_path(group: group.name)
-
 #footer
 	.container
-		%p.text-muted.credit
-			Made with rails
+		-Category.all.each do |category|
+			= link_to category.name,  posts_path(category: category.name)
+		-Group.all.each do |group|
+			= link_to group.name,  posts_path(group: group.name)
 

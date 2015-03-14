@@ -11,6 +11,10 @@ before_action :authenticate_user!, except: [:index, :show]
       end
     end
     
+    def home
+      
+    end
+    
     def new
       @post= current_user.posts.build
     end
