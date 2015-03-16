@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 	before_action :authenticate_user!
+	before_action :find_comment, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+	
 	def create
 		@post = Post.find(params[:post_id])
 		@comment = Comment.create(params[:comment].permit(:content))
@@ -12,4 +14,18 @@ class CommentsController < ApplicationController
 			render 'new'
 		end
 	end
+	
+def upvote
+  @comment = @post.comments.find(params[:post_id])
+  @comment.upvote_by current_user
+  redirect_to :back
 end
+
+def downvote
+  @comment = @post.comments.find(params[:post_id])
+  @comment.downvote_by current_user
+  redirect_to :back
+end
+end
+
+

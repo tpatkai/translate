@@ -37,5 +37,7 @@
 		.comment
 			%p.username= comment.user.name
 			%p.content= comment.content
-
-	= render "comments/form"
+		.post_data
+			= link_to "Like Comment", like_comment_path(comment), method: :get, class: "btn btn-default btn-sm"
+		.post_data
+			= render "comments/form"

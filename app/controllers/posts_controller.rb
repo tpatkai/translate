@@ -68,3 +68,5 @@ private
       params.require(:post).permit(:title, :task, :translation, :image, :category_id, :group_id)
     end
 end
+
+
