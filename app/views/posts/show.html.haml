@@ -13,17 +13,14 @@
 		Translation :
 		%br
 		=@post.translation
-	
+		%br
+		MT Suggestion:
+		=translate(@post)
+
 	.clearfix
 		.post_image_description
 			= image_tag @post.image.url(:small)
 		.post_data
-			= link_to like_post_path(@post), method: :get, class: "btn btn-default btn-sm" do
-				%span.glyphicon.glyphicon-chevron-up
-				= pluralize(@post.get_upvotes.size, "Like")
-			= link_to dislike_post_path(@post), method: :get, class: "btn btn-default btn-sm" do
-				%span.glyphicon.glyphicon-chevron-down
-				= pluralize(@post.get_downvotes.size, "Dislike")
 			%p.data
 				%span.glyphicon.glyphicon-comment
 				= pluralize(@post.comments.count, "Comment")
@@ -33,11 +30,12 @@
 
 #comments
 	%h2.comment_count= pluralize(@post.comments.count, "Comment")
+	%p
+	= render "comments/form"
 	- @comments.each do |comment|
 		.comment
 			%p.username= comment.user.name
 			%p.content= comment.content
-		.post_data
-			= link_to "Like Comment", like_comment_path(comment), method: :get, class: "btn btn-default btn-sm"
-		.post_data
-			= render "comments/form"
+			= link_to 'Vote up' , vote_up_post_comment_path(@post, comment) , :method => :post , class: "btn btn-default btn-sm"
+			%span.glyphicon.glyphicon-check	
+			= comment.votes_for - comment.votes_against 

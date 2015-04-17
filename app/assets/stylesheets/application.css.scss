@@ -1,10 +1,14 @@
 /*
  *= require_self
  */
+$dark_gray: #2B2E2E;
+$light_gray: #C0C1C1;
+$green: #BBE7F4;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+@import "normalize.css.scss";
+@import "welcome.css.scss";
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -51,7 +55,7 @@ body {
 }
 
 .navbar-default{
-  background-color: #BAEFFF;
+  background-color: #BBE7F4;
 }
 /* Custom page CSS
 -------------------------------------------------- */

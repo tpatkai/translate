@@ -1,0 +1,2 @@
+require 'thumbs_up'
+

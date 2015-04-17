@@ -5,7 +5,8 @@
 	= stylesheet_link_tag    'application', media: 'all'
 	= javascript_include_tag 'application'
 	%link{:rel => "stylesheet"}
-		= csrf_meta_tags
+	%link{:href => "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+	= csrf_meta_tags
 #wrap
 	.navbar.navbar-default.navbar-fixed-top
 		.container
@@ -24,7 +25,7 @@
 					%li
 						= link_to "Profile", edit_user_registration_path
 					%li
-						= link_to "Contact" , root_path
+						= link_to "Posts" , posts_path
 					%li
 				%ul.nav.navbar-nav.pull-right
 					%li

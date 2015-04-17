@@ -1,18 +1,12 @@
 Rails.application.routes.draw do
-  root 'posts#index'
-  devise_for :users
+devise_for :users
+get 'welcome/index'
   resources :posts do
+  resources :comments do
     member do
-    get "like", to: "posts#upvote"
-    get "dislike", to: "posts#downvote"
-    end  
-    resources :comments, shallow: true do
-    member do
-      put "like", to: "comments#upvote" , as: "like"
-      put "dislike", to: "comments#downvote" , as: "dislike"
+      post 'vote_up'
     end
   end
-
 end
-
+root "welcome#index"
 end

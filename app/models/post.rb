@@ -1,5 +1,4 @@
 class Post < ActiveRecord::Base
-  acts_as_votable
   belongs_to :user
   belongs_to:category
   belongs_to :group
@@ -11,5 +10,14 @@ class Post < ActiveRecord::Base
   :path => proc { |style| "#{style}/#{id}_#{image.original_filename}"},
   :unique_filename => true}   
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
-end
+  
+		def translate
+			@post= Post.find(params[:id])
+			translator = BingTranslator.new('translate_me_crowd', 'Y6IyeQjchDrGrnJxZWXh7dE77IFyCtGV4vhNj6YkPYE=')
+#			@category_id= Category.find_by(name: params[:category]).id
+#			
+			translated = translator.translate('this is a horse', :from => 'en', :to => 'fr')
+			print translated
 
+		end
+end
