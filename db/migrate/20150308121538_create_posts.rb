@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title
       t.text :task
       t.text :translation
+      t.text :translated
 
       t.timestamps
     end

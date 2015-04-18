@@ -14,10 +14,22 @@ class Post < ActiveRecord::Base
 		def translate
 			@post= Post.find(params[:id])
 			translator = BingTranslator.new('translate_me_crowd', 'Y6IyeQjchDrGrnJxZWXh7dE77IFyCtGV4vhNj6YkPYE=')
-#			@category_id= Category.find_by(name: params[:category]).id
-#			
-			translated = translator.translate('this is a horse', :from => 'en', :to => 'fr')
-			print translated
 
+			@post.translated = translator.translate('this is a force', :from => 'en', :to => 'fr')
+		
+			@post.update
 		end
 end
+
+
+
+
+
+
+
+
+
+
+
+#			@category_id= Category.find_by(name: params[:category]).id
+#			

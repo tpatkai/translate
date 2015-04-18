@@ -6,6 +6,3 @@
 	= f.collection_select :group_id, Group.all, :id, :name, {promt: "Choose a category for your task"}
 	= f.input :translation, label: 'Propose a draft here'
 	= f.button :submit
-	
--#= simple_form_for @post.translation, :url => url_for(:action => 'translate', :controller => 'posts'), :method => 'post.translation' do |f|       
-	-#= f.button :translate

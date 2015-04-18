@@ -48,15 +48,6 @@ before_action :authenticate_user!, except: [:index, :show]
 			redirect_to root_path
 		end
 
-		def translate
-			@post= Post.find(params[:id])
-			translator = BingTranslator.new('translate_me_crowd', 'Y6IyeQjchDrGrnJxZWXh7dE77IFyCtGV4vhNj6YkPYE=')
-#			@category_id= Category.find_by(name: params[:category]).id
-#			
-			translated = translator.translate('this is a horse', :from => 'en', :to => 'fr')
-			print translated
-
-		end
 
 
 private
@@ -65,6 +56,6 @@ private
 		end
 		
 		def post_params
-			params.require(:post).permit(:title, :task, :translation, :image, :category_id, :group_id)
+			params.require(:post).permit(:title, :task, :translation, :translated, :image, :category_id, :group_id)
 		end
 end
