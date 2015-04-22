@@ -9,32 +9,49 @@
 		Task : 
 		%br
 		=@post.task
-	%p
-		Translation :
-		%br
+	.panel.panel-primary
+		.panel-heading Source Text
+		.panel-body 
 		=@post.translation
-		%br
-		= render "posts/translate"
+	.panel.panel-success
+		.panel-heading Bing Machine Translation's suggestion
+		.panel-body 
+		=render "posts/translate"
 
 	.clearfix
 		.post_image_description
 			= image_tag @post.image.url(:small)
 		.post_data
 			%p.data
-				%span.glyphicon.glyphicon-comment
-				= pluralize(@post.comments.count, "Comment")
+				%i.fa.fa-comments
+				= pluralize(@post.comments.count, "Answer")
 			- if @post.user == current_user
 				= link_to "Edit", edit_post_path(@post), class: "btn btn-default btn-sm"
 				= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-sm"
+.divider
 
-#comments
-	%h2.comment_count= pluralize(@post.comments.count, "Comment")
-	%p
-	= render "comments/form"
-	- @comments.each do |comment|
-		.comment
-			%p.username= comment.user.name
-			%p.content= comment.content
-			= link_to 'Vote up' , vote_up_post_comment_path(@post, comment) , :method => :post , class: "btn btn-default btn-sm"
-			%span.glyphicon.glyphicon-check	
-			= comment.votes_for - comment.votes_against 
+.container
+.col-md-6
+	#random_post
+		%h3 This person could also use your help!
+		.post
+			.post_content
+				.title
+					%h3= link_to @random_post.title, post_path(@random_post)
+			.data.clearfix
+				%p.username
+				Asked by 
+				= @random_post.user.name
+.container
+.col-md-6		
+	#comments
+		%h3 User suggestions
+		%p
+		= render "comments/form"
+		- @comments.each do |comment|
+			.comment
+				%p.username= comment.user.name
+				%p.content= comment.content
+				= link_to 'Vote up' , vote_up_post_comment_path(@post, comment) , :method => :post , class: "btn btn-default btn-sm"
+				%span.fa.fa-level-up
+				= comment.votes_for - comment.votes_against 
