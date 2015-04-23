@@ -1,0 +1,53 @@
+<h3> Posts under this group </h3>
+<% Post.where(group_id: 1).each do |post| %>
+<li><%= link_to post.title , post %> </li>
+<% end %>
+
+
+<h2> SERIOUS AND USEFUL INFORMATION </h2>
+
+  <div id="grey">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<p>First post</p>
+					<p><bd><%= Time.now.strftime("%m/%d/%Y") %></bd></p>
+					<h4>#</h4>
+					<p><b>#</b> # </p>
+					<p>#</p>
+					<p><a href="#">#</a></p>
+				</div>
+
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /grey -->
+	
+	<!-- +++++ Second Post +++++ -->
+	<div id="white">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<p>Second Post</p>
+					<p><bd><%= Time.now.strftime("%m/%d/%Y") %></bd></p>
+					<p>#</p>
+					<p><a href="#">#</a></p>
+				</div>
+
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /white -->
+	
+	<!-- +++++ Third Post +++++ -->
+	<div id="grey">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<p>Third Post</p>
+					<p><bd><%= Time.now.strftime("%m/%d/%Y") %></bd></p>
+					<h4>#</h4>
+					<p class="bq">#</p>
+				</div>
+
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /grey -->

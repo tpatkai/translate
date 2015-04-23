@@ -1,0 +1,35 @@
+<h3> Posts under this group </h3>
+<% Post.where(group_id: 6).each do |post| %>
+<li><%= link_to post.title , post %> </li>
+<% end %>
+
+<h2>  FUN CENTER STUFF </h2>
+  
+  <div id="grey">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<p>First post</p>
+					<p><bd>January 18, 2014</bd></p>
+					<h4>The Amazing Spiderman</h4>
+					<p><b>Spider-Man</b> is a fictional character, a comic book superhero that appears in comic books published by Marvel Comics. Created by writer-editor Stan Lee and writer-artist Steve Ditko, he first appeared in Amazing Fantasy #15 (cover-dated Aug. 1962). </p>
+					<p>Lee and Ditko conceived the character as an orphan being raised by his Aunt May and Uncle Ben, and as a teenager, having to deal with the normal struggles of adolescence in addition to those of a costumed crimefighter.</p>
+					<p><a href="#">#</a></p>
+				</div>
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /grey -->
+	
+	<!-- +++++ Second Post +++++ -->
+	<div id="white">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<p>Second Post</p>
+					<p><bd>January 3, 2014</bd></p>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+					<p><a href="#">#</a></p>
+				</div>
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /white -->

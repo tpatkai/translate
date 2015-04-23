@@ -15,6 +15,7 @@ before_action :authenticate_user!, except: [:index, :show, :create]
 		
 		def new
 			@post= current_user.posts.build
+			@groups = Group.all.map{|c| [ c.name, c.id ] }
 		end
 		
 		def show
@@ -24,7 +25,7 @@ before_action :authenticate_user!, except: [:index, :show, :create]
 		
 		def create
 			@post= current_user.posts.build(post_params)
-			
+			@post.group_id = params[:group_id]
 			if @post.save
 				redirect_to @post
 			else
@@ -33,10 +34,12 @@ before_action :authenticate_user!, except: [:index, :show, :create]
 		end
 
 		def edit
+			@groups = Group.all.map{|c| [ c.name, c.id ] }
 		end
 		
 		def update
 			if @post.update(post_params)
+				@post.group_id = params[:group_id]
 				redirect_to @post
 			else
 				render 'edit'

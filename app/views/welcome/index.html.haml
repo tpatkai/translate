@@ -2,10 +2,10 @@
 	.container
 		.row
 			.col-lg-8.col-lg-offset-2.centered
-				%h1 Welcome to Translate.me
+				%h1 Welcome to TRANSLATE.ME
 				%p.lead Use Translate.me for accurate, free translations
 				%p
-				= link_to "Translate now!", new_post_path, class: "btn btn-primary btn-lg"
+				= link_to "Translate now!", new_post_path, class: "btn btn-warning btn-lg"
 				/ /col-lg-8
 			/ /row
 		/ /container
@@ -15,18 +15,24 @@
 		.row.mt.centered
 			.col-lg-4
 				%p SERIOUS CORNER
+				= link_to "SERIOUS CORNER", static_pages_serious_corner_path , class: "btn btn-primary btn-lg"
 			.col-lg-4
-				%p RANDOM POSTS
+				%p GENERAL TRANSLATIONS
+				= link_to "GENERAL TRANSLATIONS", static_pages_general_translations_path, class: "btn btn-primary btn-lg"
 			.col-lg-4
 				%p FUN CENTER
+				= link_to "FUN CENTER" , static_pages_fun_center_path, class: "btn btn-primary btn-lg"
 		/ /row
 		.row.mt.centered
 			.col-lg-4
 				%p WONDER WHY?
+				= link_to "WONDER WHY", static_pages_wonder_why_path, class: "btn btn-primary btn-lg"
 			.col-lg-4
 				%p WTF?
+				= link_to  "WTF" , static_pages_wtf_path, class: "btn btn-primary btn-lg"
 			.col-lg-4
 				%p QUITE INTERESTING
+				= link_to "QUITE INTERESTING", static_pages_quite_interesting_path, class: "btn btn-primary btn-lg"
 		/ /row
 	/ /container
 #footer

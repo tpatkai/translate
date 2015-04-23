@@ -3,7 +3,7 @@
 	= f.input :title , label: 'Enter the name of the translation task'
 	= f.input :task, label: 'Describe what you need'
 	= f.collection_select :category_id, Category.all, :id, :name, {promt: "Choose a language pair"}
-	= f.collection_select :group_id, Group.all, :id, :name, {promt: "Choose a category for your task"}
+	= select_tag(:group_id, options_for_select(@groups), :prompt => "Select one!")
 	= f.input :translation, label: 'Write here what you would like translated'
 	= f.input :all_tags, label: "Tags separated with comma"
 	= f.button :submit

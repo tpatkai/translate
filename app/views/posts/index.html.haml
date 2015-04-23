@@ -2,33 +2,10 @@
 	%p#intro
 		Hi there!
 		= current_user.name
-
-	.container-fluid
-		.row
-			.col-xs-3
-				%h2 Everyday translations
-				%p Have a question about an expression, a proverb or somthing in general? Get some answers by posting it here!
-				%p
-					%a.btn.btn-success
-					= link_to "General Translations"
-			.col-xs-3
-				%h2 I Wonder Why?
-				%p I wonder why a pineapple is called a pineapple? ... Get answers to the most puzzling linguistic questions out there!
-				%p
-					%a.btn.btn-success
-					= link_to "Wonder why"
-			.col-xs-3
-				%h2 Serious Corner
-				%p How to write a CV, motivational letter, professional letters and the like. Find out more in this section
-				%p
-					%a.btn.btn-success
-					= link_to "Serious Corner"
-			.col-xs-3
-				%h2 News from around the world
-				%p Have a question about an expression, a proverb or somthing in general? Get some answers by posting it here!
-				%p
-					%a.btn.btn-success
-					= link_to "News from around the world"
+	
+	.container
+		.col-md-6
+			%h2 Click on a task and help someone out! It only takes a few seconds!
 	
 	.wrapper_with_padding
 		#notes.clearfix
@@ -45,7 +22,6 @@
 								= post.comments.count
 							.tags
 								= raw post.all_tags
-
 - else
 	%p#intro
 		Translate.me > #1 source of Crowdsourced Translations
