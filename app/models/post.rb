@@ -3,6 +3,8 @@ class Post < ActiveRecord::Base
   belongs_to:category
   belongs_to :group
   has_many :comments
+  has_many :taggings
+  has_many :tags, through: :taggings
   has_attached_file :image, styles:  { medium: "700x500#", small: "350x250#"  },
   :storage => :dropbox,
   :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
@@ -11,6 +13,20 @@ class Post < ActiveRecord::Base
   :unique_filename => true}   
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   
+def all_tags=(names)
+  self.tags = names.split(",").map do |name|
+      Tag.where(name: name.strip).first_or_create!
+  end
+end
+ 
+def all_tags
+  self.tags.map(&:name).join(", ")
+end
+
+def self.tagged_with(name)
+  Tag.find_by_name!(name).posts
+end
+
 		def translate
 			@post= Post.find(params[:id])
 			translator = BingTranslator.new('translate_me_crowd', 'Y6IyeQjchDrGrnJxZWXh7dE77IFyCtGV4vhNj6YkPYE=')
@@ -20,16 +36,3 @@ class Post < ActiveRecord::Base
 			@post.update
 		end
 end
-
-
-
-
-
-
-
-
-
-
-
-#			@category_id= Category.find_by(name: params[:category]).id
-#			

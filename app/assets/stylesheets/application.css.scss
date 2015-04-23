@@ -16,6 +16,18 @@ body {
 }
 
 
+.btn-lg {
+  margin-bottom: 25px;
+}
+
+.lead {
+color:white;
+}
+
+.col-lg-offset-2 {
+background-color: rgb(22, 160, 133);
+border-radius: .9rem;
+}
 
 /* Custom page CSS
 -------------------------------------------------- */
@@ -48,7 +60,7 @@ code {
   width:100%;
   display:block; /* for use on default inline elements like span */
   margin: 9px 0;
-  padding-bottom: 25px;
+  padding-bottom: 90px;
   padding-top: 25px;
   overflow: hidden;
   background-color: white;
@@ -144,7 +156,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
 	font-size: 35px;
-	margin-top: 30px;
+	margin-top: 50px;
 	margin-bottom: 30px;
 }
 
@@ -203,6 +215,7 @@ a:after {
 .navbar {
 	text-transform: uppercase;
 	margin-bottom: 0px;
+	
 }
 
 .navbar-inverse {
@@ -213,6 +226,8 @@ a:after {
 .navbar-inverse {
 	background-color: #110022;
 	border-color: #16a085;
+  border-bottom-color: #16a085;
+  border-bottom-width: thick;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -270,7 +285,8 @@ a:after {
 	padding-top: 50px;
 	padding-bottom: 50px; 
 	text-align:center;
-	margin-top: 45px
+	margin-top: 45px;
+	border-radius: 0.9rem;
 }
 
 #footer p {
@@ -434,3 +450,26 @@ bt {
 		}
 	}
 	
+#notice_wrapper {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background: rgba(135, 216, 211, 0.85);
+    .alert, .notice {
+        padding: 2.5rem 0;
+        text-align: center;
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #FFFFFF;
+        letter-spacing: 1px;
+    }
+}
+
+
+.tags{
+  margin-top: -50px;
+  padding: 2px;
+  float: right;
+}

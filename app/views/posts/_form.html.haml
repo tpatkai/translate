@@ -1,8 +1,9 @@
 = simple_form_for @post do |f|
 	= f.input :image , label: 'Upload a scanned text or image'
 	= f.input :title , label: 'Enter the name of the translation task'
-	= f.input :task, label: 'Describe what sort of translation you're looking for'
+	= f.input :task, label: 'Describe what you need'
 	= f.collection_select :category_id, Category.all, :id, :name, {promt: "Choose a language pair"}
 	= f.collection_select :group_id, Group.all, :id, :name, {promt: "Choose a category for your task"}
 	= f.input :translation, label: 'Write here what you would like translated'
+	= f.input :all_tags, label: "Tags separated with comma"
 	= f.button :submit

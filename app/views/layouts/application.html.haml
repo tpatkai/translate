@@ -39,13 +39,18 @@
 						= link_to "Posts" , posts_path
 					%li
 						- if user_signed_in?
-							= link_to "Add New Task", new_post_path, class: "btn btn-default btn-sm"
+							= link_to "Add New Task", new_post_path, class: "btn btn-success btn-sm"
 						- else
 							= link_to "Sign in", new_user_session_path, class: "btn btn-success btn-sm"
 							= link_to "Sign Up", new_user_registration_path, class: "btn btn-success btn-sm"
 			/ /.nav-collapse
-	%p.notice= notice
-	%p.alert= alert
-	
+- if notice
+	#notice_wrapper
+		%p.notice= notice
+- elsif
+	#notice_wrapper
+		%p.alert= alert
+
+.divider
 .container	
 	= yield   

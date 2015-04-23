@@ -43,6 +43,8 @@
 						%p.buttons
 							%i.fa.fa-comments
 								= post.comments.count
+							.tags
+								= raw post.all_tags
 
 - else
 	%p#intro

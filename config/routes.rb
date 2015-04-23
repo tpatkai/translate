@@ -3,6 +3,7 @@ devise_for :users
 get 'welcome/index'
   resources :posts do
    post 'translated'
+get 'tags/:tag', to: 'posts#index', as: "tag"
   resources :comments do
     member do
       post 'vote_up'
@@ -11,3 +12,5 @@ get 'welcome/index'
 end
 root "welcome#index"
 end
+
+
