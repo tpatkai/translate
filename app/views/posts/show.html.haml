@@ -19,11 +19,9 @@
 		=render "posts/translate"
 
 	.clearfix
-		.post_image_description
-			= image_tag @post.image.url(:small)
 		.post_data
 			%p.data
-				%i.fa.fa-comments.fa-4x
+				%i.fa.fa-comments.fa-3x
 				= pluralize(@post.comments.count, "Answer")
 			- if @post.user == current_user
 				= link_to "Edit", edit_post_path(@post), class: "btn btn-default btn-sm"
@@ -54,6 +52,6 @@
 				%p.username= comment.user.name
 				%p.content= comment.content
 				= link_to 'Vote up' , vote_up_post_comment_path(@post, comment) , :method => :post , class: "btn btn-default btn-sm"
-				%span.fa.fa-level-up.fa-4x
+				%span.fa.fa-level-up.fa-2x
 				= comment.votes_for - comment.votes_against 
 

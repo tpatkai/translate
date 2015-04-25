@@ -16,4 +16,11 @@ class User < ActiveRecord::Base
   # Karma by default is only calculated from upvotes. If you pass an array to the weight option, you can count downvotes as well (below, downvotes count for half as much karma against you):
 
   #has_karma :downvotes, :as => :submitter, :weight => [ 1, 0.5 ]
+  def increase_karma(count=1)
+    update_attribute(:karma, karma + count)
+  end
+  def decrease_karma(count=1)
+  update_attribute(:karma, karma - count)
+  end
+
 end
