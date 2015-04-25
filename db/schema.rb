@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 20150423084518) do
     t.datetime "image_updated_at"
     t.integer  "category_id"
     t.integer  "group_id"
-    t.text     "translated_id"
     t.text     "translated"
   end
 
