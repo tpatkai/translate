@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'static_pages/about'
   get 'static_pages/help'
   get 'groups/show'
+  get 'static_pages/index'
   get 'static_pages/wonder_why'
   get 'static_pages/wtf'
   get 'static_pages/serious_corner'

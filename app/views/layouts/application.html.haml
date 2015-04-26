@@ -38,6 +38,8 @@
 					%li
 						= link_to "Posts" , posts_path
 					%li
+						= link_to "Users" , static_pages_index_path
+					%li
 						- if user_signed_in?
 							= link_to "Add New Task", new_post_path, class: "btn btn-success btn-sm"
 						- else

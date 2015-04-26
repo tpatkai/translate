@@ -35,3 +35,10 @@ test:
 production:
   <<: *default
   database: translateme_production
+  adapter: postgresql
+  encoding: SQL_ASCII
+  pool: 5
+  timeout: 5000
+  database: d46inuf3l0ap61
+  username: iofaxrbsidqrou
+  password: uK13-gZSiSOTLEln4a3VsZHSRD
