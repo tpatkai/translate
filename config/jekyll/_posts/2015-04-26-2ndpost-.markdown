@@ -1,0 +1,7 @@
+---
+layout: post
+published: true
+title: 2ndpost_
+---
+
+Another amazing blog post for testing
