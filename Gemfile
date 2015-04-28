@@ -21,9 +21,12 @@ gem "bing_translator", "~> 4.4.0"
 gem 'pg',             '0.17.1'
 gem 'thumbs_up', git: 'https://github.com/bouchard/thumbs_up.git', ref: 'f499a7c803c0a9fdcefe4275f2f0a10ca7964508'
 
+
 group :development, :test do
  
   gem 'web-console', '2.0.0.beta3'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 end
 

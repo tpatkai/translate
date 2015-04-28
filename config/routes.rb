@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'static_pages/fun_center'
   get 'static_pages/quite_interesting'
   get 'static_pages/general_translations'
-  devise_for :users
+  devise_for :users #, :controllers => { :omniauth_callbacks => "callbacks" }
 get 'welcome/index'
   resources :posts do
    post 'translated'
