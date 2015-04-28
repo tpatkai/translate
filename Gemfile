@@ -25,8 +25,6 @@ gem 'thumbs_up', git: 'https://github.com/bouchard/thumbs_up.git', ref: 'f499a7c
 group :development, :test do
  
   gem 'web-console', '2.0.0.beta3'
-gem 'omniauth'
-gem 'omniauth-facebook'
 
 end
 
