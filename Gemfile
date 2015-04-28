@@ -19,7 +19,6 @@ gem 'acts-as-taggable-on', '~> 3.4'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem "bing_translator", "~> 4.4.0"
 gem 'pg',             '0.17.1'
-gem 'bloggy', '~> 0.3'
 gem 'thumbs_up', git: 'https://github.com/bouchard/thumbs_up.git', ref: 'f499a7c803c0a9fdcefe4275f2f0a10ca7964508'
 
 group :development, :test do

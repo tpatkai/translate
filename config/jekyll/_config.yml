@@ -1,8 +1,0 @@
-markdown: rdiscount
-permalink: /:title.html
-source: ./_posts
-destination:  ../../public/blog
-exclude:
-  - Rakefile
-  - Gemfile
-  - .gitignore
