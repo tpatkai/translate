@@ -9,6 +9,7 @@ def new
 
 		if @comment.save
 			redirect_to post_path(@post)
+			current_user.increase_karma
 		else
 			render 'new'
 		end
@@ -19,9 +20,9 @@ end
 		@comment = Comment.create(params[:comment].permit(:content))
 		@comment.user_id = current_user.id
 		@comment.post_id = @post.id
-
 		if @comment.save
 			redirect_to post_path(@post)
+			current_user.increase_karma
 		else
 			render 'new'
 		end
@@ -31,7 +32,7 @@ end
 		 begin
 		 @comment = Comment.find(params[:id])
 		 current_user.vote_for(@comment)
-		flash[:message] = 'Thanks for voting! +5 points'
+		flash[:message] = 'Thanks for voting! +1 point'
 		current_user.increase_karma
 		redirect_to :back
 		rescue	
