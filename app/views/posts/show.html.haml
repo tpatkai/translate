@@ -9,14 +9,22 @@
 		Task : 
 		%br
 		=@post.task
-	.panel.panel-primary
-		.panel-heading Source Text
-		.panel-body 
-		=@post.translation
-	.panel.panel-success
-		.panel-heading Bing Machine Translation's suggestion
-		.panel-body 
-		=render "posts/translate"
+
+.container
+	%ul.nav.nav-tabs
+		%li.active
+			%a{"data-toggle" => "tab", :href => "#sectionA"} Source Text
+		%li
+			%a{"data-toggle" => "tab", :href => "#sectionB"} Bing Machine Translation
+	.tab-content
+		#sectionA.tab-pane.fade.in.active
+			%h3 Section A
+			%p 
+			=@post.translation
+		#sectionB.tab-pane.fade
+			%h3 Section B
+			%p 
+			=render "posts/translate"
 
 	.clearfix
 		.post_data
@@ -54,4 +62,5 @@
 				= link_to 'Vote up' , vote_up_post_comment_path(@post, comment) , :method => :post , class: "btn btn-default btn-sm"
 				%span.fa.fa-level-up.fa-2x
 				= comment.votes_for - comment.votes_against 
+
 
