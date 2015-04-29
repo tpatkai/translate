@@ -18,11 +18,9 @@
 			%a{"data-toggle" => "tab", :href => "#sectionB"} Bing Machine Translation
 	.tab-content
 		#sectionA.tab-pane.fade.in.active
-			%h3 Section A
 			%p 
 			=@post.translation
 		#sectionB.tab-pane.fade
-			%h3 Section B
 			%p 
 			=render "posts/translate"
 
